@@ -57,3 +57,9 @@ As três tabelas possuem IDs numéricos identity. `usuarios.username` é único;
 Prometheus em http://localhost:9090 coleta a cada 5 segundos. O [dashboard](http://localhost:3000/d/av2-seguranca) atualiza a cada 5 segundos e mostra `seguranca_logins_validos_total`, `seguranca_logins_invalidos_total` e `seguranca_usuarios_bloqueados`. Os dois contadores somam somente respostas 200 e 401 de `POST /login` desde o início do processo e zeram quando a aplicação reinicia. O gauge consulta o banco e permanece coerente com os bloqueios persistidos.
 
 A [captura do dashboard](docs/grafana/dashboard.png) e o [JSON exportado](docs/grafana/dashboard-exportado.json) são evidências da instância. Para exportar no Grafana, use Share > Export > Export as code. Para importar, use Dashboards > New > Import, selecione o JSON e associe o datasource Prometheus de UID `prometheus`; altere o UID ou escolha outra pasta se quiser evitar substituir o dashboard provisionado.
+
+### Print do dashboard em execução
+
+Captura real da página completa do Grafana, mostrando 1 login válido, 3 inválidos e 1 usuário bloqueado no momento da captura. Os valores mudam conforme o uso da API; os contadores reiniciam com a aplicação.
+
+![Dashboard Grafana com os três indicadores](docs/grafana/dashboard-atual.jpg)
